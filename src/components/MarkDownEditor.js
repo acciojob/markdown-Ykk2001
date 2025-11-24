@@ -9,7 +9,7 @@ useEffect(()=>{
     setLoading(true);
 
     const t=setTimeout(()=>{
-       setPreview(input);
+       setPreview(prev=>prev+input);
        setLoading(false);
     },300);
 
