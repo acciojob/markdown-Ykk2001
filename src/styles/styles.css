@@ -1,0 +1,24 @@
+.app{
+    width: 100%;
+    border: 1px solid red;
+}
+
+.container{
+display: flex;
+flex-direction: row;
+height: 100vh;
+}
+.textarea {
+  width: 50%;
+  padding: 20px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  resize: none;
+  background: #f5f7fa;
+}
+
+.preview {
+  width: 50%;
+  font-size: 18px;
+}
