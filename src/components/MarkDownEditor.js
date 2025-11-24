@@ -1,35 +1,45 @@
-import React, { useEffect, useState } from 'react'
-import Markdown from 'react-markdown'
-export default function MarkDownEditor() {
-const[input,setInput]=useState(` # Heading\n\nType *Markdown* here.\n\n- Try a list\n- **bold** text\n\n1. Numbered\n2. Items`);
-const[preview,setPreview]=useState('');
-const[loading,setLoading]=useState(false);
+import React, { useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
 
-useEffect(()=>{
+
+
+export default function MarkDownEditor() {
+  const [text, setText] = useState(
+    `# Heading\n\nType *Markdown* here.\n\n- Try a list\n- **bold** text\n\n1. Numbered\n2. Items`
+  );
+
+  const [preview, setPreview] = useState(text);
+  const [loading, setLoading] = useState(false);
+
+  
+  useEffect(() => {
     setLoading(true);
 
-    const t=setTimeout(()=>{
-       setPreview(input);
-       setLoading(false);
-    },300);
+    const t = setTimeout(() => {
+      setPreview(text);
+      setLoading(false);
+    }, 300); 
 
-    return ()=>clearTimeout(t);
+    return () => clearTimeout(t);
+  }, [text]);
 
-   
-},[input])
   return (
-    <div className='container'>
-        
-        <textarea className='textarea' placeholder='Write markdown text here...' value={input} onChange={(e)=>setInput(e.target.value)}>
+    <div style={{ display: "flex", width: "100%", height: "100%" }}>
+      {/* Left: input textarea */}
+      <textarea
+        className="textarea"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Type your Markdown here..."
+      />
 
-        </textarea>
-
-        <div className='preview'>
-            {loading && <h1 className="loading">Rendering preview...</h1>}
-         <Markdown >{preview}</Markdown>
+      {/* Right: preview */}
+      <div className="preview-wrapper" style={{ width: "50%", padding: 12 }}>
+        {loading && <div className="loading">Rendering preview...</div>}
+        <div className="preview" aria-live="polite">
+          <ReactMarkdown>{preview}</ReactMarkdown>
         </div>
+      </div>
     </div>
-  )
+  );
 }
-
-// 
