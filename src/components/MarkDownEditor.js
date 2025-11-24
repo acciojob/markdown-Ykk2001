@@ -13,7 +13,7 @@ useEffect(()=>{
        setLoading(false);
     },300);
 
-    return()=>clearTimeout(t);
+    return ()=>clearTimeout(t);
 
    
 },[input])
@@ -25,7 +25,7 @@ useEffect(()=>{
         </textarea>
 
         <div className='preview'>
-            {loading && <div className="loading">Rendering preview...</div>}
+            {loading && <h1 className="loading">Rendering preview...</h1>}
          <Markdown >{preview}</Markdown>
         </div>
     </div>
