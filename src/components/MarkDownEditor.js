@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Markdown from 'react-markdown'
 export default function MarkDownEditor() {
-const[input,setInput]=useState('**bold**');
+const[input,setInput]=useState('# Hello');
 const[preview,setPreview]=useState('');
 const[loading,setLoading]=useState(false);
 
