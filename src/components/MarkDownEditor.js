@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Markdown from 'react-markdown'
 export default function MarkDownEditor() {
-const[input,setInput]=useState(`# Heading\n\nType *Markdown* here.\n\n- Try a list\n- **bold** text\n\n1. Numbered\n2. Items`);
+const[input,setInput]=useState('**bold**');
 const[preview,setPreview]=useState('');
 const[loading,setLoading]=useState(false);
 
